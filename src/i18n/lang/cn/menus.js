@@ -15,6 +15,7 @@ export default {
     siteMessage: '站内信',
     notFound: '404',
     service: '服务市场',
+    yftest: '研发测试',
     // 二级
     serviceIndex: '服务市场',
     workplaceIndex: '工作台',

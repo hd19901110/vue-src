@@ -13,6 +13,7 @@ export default {
     vip: 'VIP',
     system: 'System',
     siteMessage: 'Site-in Message',
+    yftest: 'yetest',
     // 二级
     // 系统
     organize: 'Organize Manage',
