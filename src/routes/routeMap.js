@@ -234,5 +234,7 @@ export default {
   // 双因子
   doubleIndex: 'views/System/Double/Index',
   // 服务市场
-  serviceIndex: 'views/Service/Index'
+  serviceIndex: 'views/Service/Index',
+  // 研发t测试
+  yftest: 'views/yftest/Index',
 }

@@ -90,14 +90,14 @@ const columns = [
     prop: 'age',
     label: '年龄'
   },
-    {
-        prop: 'height',
-        label: '身高'
-    },
-    {
-        prop: 'weight',
-        label: '体重'
-    }
+  {
+    prop: 'height',
+    label: '身高'
+  },
+  {
+    prop: 'weight',
+    label: '体重'
+  }
 
 ]
 
