@@ -109,6 +109,9 @@ export default {
     socialWechatGroupIndex: '定时群发',
     socialWechatComment: '留言管理',
     socialWechatCommentIndex: '留言管理',
+    //研发测试
+    yftestIndex: '研发测试列表',
+
     // 三级
     // 系统
     organizeIndex: '组织管理',

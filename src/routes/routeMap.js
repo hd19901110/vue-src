@@ -182,6 +182,7 @@ export default {
   // 账户安全设置
   safe: 'views/System/Safe/Index',
   // 密级管理
+
   securityUserIndex: 'views/System/Security/User/Index',
   securityUserDetail: 'views/System/Security/User/Detail',
   securityContentIndex: 'views/System/Security/Content/Index',
@@ -235,6 +236,6 @@ export default {
   doubleIndex: 'views/System/Double/Index',
   // 服务市场
   serviceIndex: 'views/Service/Index',
-  // 研发t测试
-  yftest: 'views/yftest/Index',
+  // 研发测试
+  yftestIndex: 'views/yftest/Index'
 }

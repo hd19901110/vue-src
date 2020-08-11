@@ -6,5 +6,5 @@ export default {
   // API-列表
   yftestList: `${prefix}/yftest/page`,
   // API-验证
-  yftestUnique: `${prefix}/apis/yftest/unique`
+  yftestUnique: `${prefix}/yftest/unique`
 }

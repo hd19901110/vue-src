@@ -151,13 +151,13 @@ export default {
             type: 'Create',
             text: '新建',
             icon: 'xinjian',
-            disabled: !this._checkPermission('/cmsadmin/apis', 'POST')
+            disabled: !this._checkPermission('/cmsadmin/yftest', 'POST')
           },
           {
             type: 'Delete',
             text: '删除',
             icon: 'delete',
-            disabled: !this._checkPermission('/cmsadmin/apis', 'DELETE')
+            disabled: !this._checkPermission('/cmsadmin/yftest', 'DELETE')
           }
         ],
         title: '',
@@ -316,7 +316,7 @@ export default {
     // 表格操作按钮
     handleTableDelete (row, index) {
       this._confirmDelete().then(() => {
-        this.fetchApisDelete([row.id])
+        this.fetchYftestDelete([row.id])
       })
     },
     // 顶部操作按钮
@@ -326,7 +326,7 @@ export default {
     handleHeaderDelete () {
       if (this.list.selectedKeys.length) {
         this._confirmDelete().then(() => {
-          this.fetchApisDelete(this.list.selectedKeys)
+          this.fetchYftestDelete(this.list.selectedKeys)
         })
       } else {
         this._messageOne()
@@ -335,7 +335,7 @@ export default {
       // 添加页面的action
     handleConfirmAdd (data, btn) {
       this.addFormLoading = true
-      this.$request.fetchYfTestCreate(data).then(res => {
+      this.$request.fetchYftestCreate(data).then(res => {
         if (res.code === 200) {
           this._messageSuccess('save')
           this.fetchTableApi()
