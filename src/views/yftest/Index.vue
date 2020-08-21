@@ -9,6 +9,7 @@
       v-bind="searchHeader"
       :params="list.params"
       @handleSearch="handleSearch"
+      @handleBtn="handleBtn"
     ></search-header>
     <base-table
       v-bind="list"
@@ -60,31 +61,31 @@ const columns = [
     prop: 'sex',
     label: '性别',
     formatter: (row, column, cellValue, index) => {
-       const options = [
-              {
-               label: '男',
-                value: '1'
-              },
-              {
-                  label: '女',
-                  value: '2'
-              },
-              {
-                  label: '人妖',
-                  value: '3'
-              },
-              {
-                  label: '鬼',
-                  value: '4'
-              },
-              {
-                  label: '魔',
-                  value: '5'
-              }
-          ]
-          const opt = options.find(d => d.value === cellValue)
-          return opt ? opt.label : ''
-      }
+      const options = [
+        {
+          label: '男',
+          value: 1
+        },
+        {
+          label: '女',
+          value: 2
+        },
+        {
+          label: '人妖',
+          value: 3
+        },
+        {
+          label: '中性',
+          value: 4
+        },
+        {
+          label: '其它',
+          value: 5
+        }
+      ]
+      const opt = options.find(d => d.value === cellValue)
+      return opt ? opt.label : ''
+    }
   },
   {
     prop: 'age',
@@ -114,15 +115,46 @@ export default {
             placeholder: '姓名'
           },
           {
-            type: 'input',
+            type: 'select',
             value: 'sex',
-            placeholder: '性别'
+            placeholder: '性别',
+            options: [
+              {
+                label: '请选择',
+                value: ''
+              },
+              {
+                label: '男',
+                value: 1
+              },
+              {
+                label: '女',
+                value: 2
+              },
+              {
+                label: '人妖',
+                value: 3
+              },
+              {
+                label: '中性',
+                value: 4
+              },
+              {
+                label: '其它',
+                value: 5
+              }
+            ]
           },
-            {
-                type: 'searchInput',
-                value: 'age',
-                placeholder: '年龄'
-            }
+          {
+            type: 'searchInput',
+            value: 'age',
+            placeholder: '年龄'
+          },
+          {
+            type: 'henderBtns',
+            text: '重置',
+            command: 'ResetBut'
+          }
         ]
       },
       list: {
@@ -138,7 +170,7 @@ export default {
             type: 'Delete',
             name: '删除',
             icon: 'delete',
-            disabled: !this._checkPermission('/cmsadmin/apis', 'DELETE')
+            disabled: !this._checkPermission('/cmsadmin/yftest', 'DELETE')
           }
         ],
         handleColumnProp: {
@@ -168,19 +200,19 @@ export default {
       addFormLoading: false,
       addForm: {
         name: '',
-        sex: '',
+        sex: 1,
         age: '',
         height: '',
         weight: ''
       },
       editFormLoading: false,
       editForm: {
-          id: '',
-          name: '',
-          sex: '',
-          age: '',
-          height: '',
-          weight: ''
+        id: '',
+        name: '',
+        sex: 1,
+        age: '',
+        height: '',
+        weight: ''
       },
       editButton: [
         {
@@ -189,68 +221,30 @@ export default {
         }
       ],
       editRules: {
-        requestMethod: [
-          this.$rules.required()
-        ],
         name: [
           this.$rules.required()
         ],
-        apiUrl: [
+        age: [
           this.$rules.required(),
-          {
-            validator: (rule, value, callback) => {
-              if (value) {
-                var params = {
-                  url: value,
-                  id: this.editForm.id,
-                  requestMethod: this.editForm.requestMethod
-                }
-                this.$request.fetchApisUnique(params).then(res => {
-                  if (res.code === 200 && res.data) {
-                    callback()
-                  } else {
-                    callback(new Error('API地址不能重复'))
-                  }
-                })
-              }
-            },
-            trigger: 'blur'
-          }
+          this.$rules.number(),
+          this.$rules.rangeNum(1, 200)
+        ],
+        sex: [
+          this.$rules.required()
         ]
       },
       addRules: {
-        requestMethod: [
+        name: [
           this.$rules.required()
         ],
-        ssname: [
-          this.$rules.required()
-        ],
-        apiUrl: [
+        age: [
           this.$rules.required(),
-          {
-            validator: (rule, value, callback) => {
-              if (value) {
-                var params = {
-                  url: value,
-                  requestMethod: this.addForm.requestMethod
-                }
-                this.$request.fetchApisUnique(params).then(res => {
-                  if (res.code === 200 && res.data) {
-                    callback()
-                  } else {
-                    callback(new Error('API地址不能重复'))
-                  }
-                })
-              }
-            },
-            trigger: 'blur'
-          }
+          this.$rules.number(),
+          this.$rules.rangeNum(1, 200)
         ],
-          age: [
-              this.$rules.required(),
-              this.$rules.number(),
-              this.$rules.rangeNum(1, 200)
-          ]
+        sex: [
+          this.$rules.required()
+        ]
 
       },
       addFormItems: [
@@ -265,33 +259,33 @@ export default {
           prop: 'sex',
           label: '性别',
           placeholder: '请选择',
-            options: [
-                {
-                    label: '男',
-                    value: 1
-                },
-                {
-                    label: '女',
-                    value: 2
-                },
-                {
-                    label: '人妖',
-                    value: 3
-                },
-                {
-                    label: '鬼',
-                    value: 4
-                },
-                {
-                    label: '魔',
-                    value: 5
-                }
-            ]
+          options: [
+            {
+              label: '男',
+              value: 1
+            },
+            {
+              label: '女',
+              value: 2
+            },
+            {
+              label: '人妖',
+              value: 3
+            },
+            {
+              label: '中性',
+              value: 4
+            },
+            {
+              label: '其它',
+              value: 5
+            }
+          ]
         },
         {
           prop: 'age',
           label: '年龄',
-          placeholder: '请输入年龄',
+          placeholder: '请输入年龄'
         },
         {
           prop: 'height',
@@ -299,20 +293,20 @@ export default {
           placeholder: '请输入身高',
           maxLength: 75
         },
-          {
-              prop: 'weight',
-              label: '体重',
-              placeholder: '请输入体重',
-              maxLength: 75
-          }
+        {
+          prop: 'weight',
+          label: '体重',
+          placeholder: '请输入体重',
+          maxLength: 75
+        }
       ]
     }
   },
   computed: {
-    ...mapState('system', ['reflushApi'])
+    ...mapState('system', ['reflushYftest'])
   },
   methods: {
-    ...mapActions('system', ['ReflushApi']),
+    ...mapActions('system', ['ReflushYftest']),
     // 表格操作按钮
     handleTableDelete (row, index) {
       this._confirmDelete().then(() => {
@@ -332,7 +326,7 @@ export default {
         this._messageOne()
       }
     },
-      // 添加页面的action
+    // 添加页面的action
     handleConfirmAdd (data, btn) {
       this.addFormLoading = true
       this.$request.fetchYftestCreate(data).then(res => {
@@ -349,7 +343,7 @@ export default {
     rowHref (row) {
       this.editFormLoading = true
 
-      this.$request.fetchYfTestDetail({ id: row.id }).then(res => {
+      this.$request.fetchYftestDetail({ id: row.id }).then(res => {
         if (res.code === 200) {
           this.editForm = res.data
           this.$refs.editDialog.showDialog()
@@ -362,11 +356,11 @@ export default {
     // 编辑保存
     handleConfirmEdit (data) {
       this.editFormLoading = true
-      this.$request.fetchApisUpdate(data).then(res => {
+      this.$request.fetchYftestUpdate(data).then(res => {
         if (res.code === 200) {
           this._messageSuccess('save')
           this.fetchTableApi()
-          this.ReflushApi(true)
+          this.ReflushYftest(true)
         }
         this.editFormLoading = false
       }).catch(() => {
@@ -374,9 +368,9 @@ export default {
       })
     },
     // 发送请求事件
-    fetchApisDelete (ids) {
+    fetchYftestDelete (ids) {
       this.list.loading = true
-      this.$request.fetchApisDelete(ids).then(res => {
+      this.$request.fetchYftestDelete(ids).then(res => {
         if (res.code === 200) {
           this._messageSuccess('delete')
           this.fetchTableApi()
@@ -389,15 +383,25 @@ export default {
         this.list.data = res.data.content
         this.list.totalCount = res.data.totalElements
       }
+    },
+    // 搜索重置
+    handleBtn (item) {
+      if (item.command === 'ResetBut') {
+        this.list.params.name = ''
+        this.list.params.sex = ''
+        this.list.params.age = ''
+        this.fetchTableApi()
+      }
     }
+
   },
   mounted () {
     this.fetchTableApi()
   },
   activated () {
-    if (this.reflushApi) {
+    if (this.reflushYftest) {
       this.fetchTableApi()
-      this.ReflushApi(false)
+      this.ReflushYftest(false)
     }
   }
 }
