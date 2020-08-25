@@ -693,5 +693,54 @@ export default {
   // 双因子-判断是否开启
   fetchDoubleElementStatus (data) {
     return axios.get(systemUrls.doubleElementStatus, data)
+  },
+  // 这是新增的
+  // 字典类型
+  // 字典类型-新增
+  fetchDictTypeCreate (data) {
+    return axios.post(systemUrls.dictTypeCreate, data)
+  },
+  // 字典类型-删除
+  fetchDictTypeDelete (ids) {
+    return axios.post(systemUrls.dictTypeDelete, { ids })
+  },
+  // 字典类型-修改
+  fetchDictTypeUpdate (data) {
+    return axios.post(systemUrls.dictTypeUpdate, data)
+  },
+  // 字典类型-详情
+  fetchDictTypeDetail (data) {
+    return axios.get(systemUrls.dictTypeDetail, data)
+  },
+  // 字典类型-列表
+  fetchDictTypeList (data) {
+    return axios.get(systemUrls.dictTypeList, data)
+  },
+  // 字典类型-所有
+  fetchDictTypeListAll (data) {
+    return axios.get(systemUrls.dictTypeListAll, data)
+  },
+
+  // 字典数据
+  // 字典数据-新增
+  fetchDictDataCreate (data) {
+    return axios.post(systemUrls.dictDataCreate, data)
+  },
+  // 字典数据-删除
+  fetchDictDataDelete (ids) {
+    return axios.post(systemUrls.dictDataDelete, { ids })
+  },
+  // 字典数据-修改
+  fetchDictDataUpdate (data) {
+    return axios.post(systemUrls.dictDataUpdate, data)
+  },
+  // 字典数据-详情
+  fetchDictDataDetail (data) {
+    return axios.get(systemUrls.dictDataDetail, data)
+  },
+  // 字典数据-列表
+  fetchDictDataList (data) {
+    return axios.get(systemUrls.dictDataList, data)
   }
+
 }

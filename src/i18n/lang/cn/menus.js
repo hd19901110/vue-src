@@ -109,9 +109,9 @@ export default {
     socialWechatGroupIndex: '定时群发',
     socialWechatComment: '留言管理',
     socialWechatCommentIndex: '留言管理',
-    //研发测试
-    yftestIndex: '研发测试列表',
-
+    // 研发测试
+    yfTestPeople: '个人信息',
+    yftestPeopleIndex: '个人信息列表',
     // 三级
     // 系统
     organizeIndex: '组织管理',
@@ -196,6 +196,12 @@ export default {
     threeMemberAudit: '三员审核',
     threeMemberJournal: '三员审核日志',
     doubleIndex: '双因子设置',
+    // yf字典管理
+    dict: '字典管理',
+    dictTypes: '字典类型',
+    dictTypesIndex: '字典类型列表',
+    dictDatas: '字典数据',
+    dictDatasIndex: '字典数据列表',
     // 配置
     configSiteIndex: '站点管理',
     configSiteDetail: '站点详情',
@@ -273,7 +279,7 @@ export default {
     statisticsVisitorNetwork: '网络设备',
     statisticsVisitorVisitor: '新老访客',
     statisticsVisitorFidelity: '忠诚度',
-    statisticsReleaseColumn: '栏目',
+    // statisticsReleaseColumn: '栏目',
     // 四级
     // 配置
     configVocabularyTag: 'tag词',

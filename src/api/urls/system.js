@@ -244,5 +244,30 @@ export default {
   // 双因子-提交绑定手机
   doubleElementBind: `${prefix}/config/element/bind`,
   // 双因子-判断是否开启
-  doubleElementStatus: `${prefix}/config/element/status`
+  doubleElementStatus: `${prefix}/config/element/status`,
+  // 这是新增的
+  // 字典类型
+  // 字典类型新增
+  dictTypeCreate: `${prefix}/dictTypeManager/save`,
+  // 字典类型删除
+  dictTypeDelete: `${prefix}/dictTypeManager/delete`,
+  // 字典类型修改
+  dictTypeUpdate: `${prefix}/dictTypeManager/update`,
+  // 字典类型详情
+  dictTypeDetail: `${prefix}/dictTypeManager/get`,
+  // 字典类型列表
+  dictTypeList: `${prefix}/dictTypeManager/page`,
+  // 所有的字典类型
+  dictTypeListAll: `${prefix}/dictTypeManager/page`,
+  // 字典数据
+  // 字典数据新增
+  dictDataCreate: `${prefix}/dictDataManager/save`,
+  // 字典数据删除
+  dictDataDelete: `${prefix}/dictDataManager/delete`,
+  // 字典数据修改
+  dictDataUpdate: `${prefix}/dictDataManager/update`,
+  // 字典数据详情
+  dictDataDetail: `${prefix}/dictDataManager/get`,
+  // 字典数据列表
+  dictDataList: `${prefix}/dictDataManager/page`
 }

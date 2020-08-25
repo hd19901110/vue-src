@@ -237,5 +237,10 @@ export default {
   // 服务市场
   serviceIndex: 'views/Service/Index',
   // 研发测试
-  yftestIndex: 'views/yftest/Index'
+  // yfTestPeople: 'views/yftest/Index',
+  yftestPeopleIndex: 'views/yftest/Index',
+  // 字典类型
+  dictTypesIndex: 'views/System/Dict/Types/Index',
+  // 字典数据
+  dictDatasIndex: 'views/System/Dict/Datas/Index'
 }
