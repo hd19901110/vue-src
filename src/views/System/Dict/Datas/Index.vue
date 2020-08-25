@@ -317,7 +317,7 @@ export default {
     }
 
   },
- mounted () {
+  mounted () {
     this.fetchTableApi()
     this.selectDictTypeById()
   },
