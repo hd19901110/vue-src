@@ -946,5 +946,33 @@ export default {
         }
       ]
     }
+  ],
+  xnxq: [
+    {
+      label: '第一学期',
+      value: '1'
+    },
+    {
+      label: '第二学期',
+      value: '2'
+    }
+  ],
+  xd: [
+    {
+      label: '幼儿园',
+      value: '0'
+    },
+    {
+      label: '小学',
+      value: '1'
+    },
+    {
+      label: '初中',
+      value: '2'
+    },
+    {
+      label: '高中',
+      value: '3'
+    }
   ]
 }

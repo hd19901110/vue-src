@@ -112,6 +112,7 @@ export default {
     // 研发测试
     yfTestPeople: '个人信息',
     yftestPeopleIndex: '个人信息列表',
+    basicInfor: '基本信息',
     // 三级
     // 系统
     organizeIndex: '组织管理',
@@ -280,6 +281,12 @@ export default {
     statisticsVisitorVisitor: '新老访客',
     statisticsVisitorFidelity: '忠诚度',
     // statisticsReleaseColumn: '栏目',
+    // 研发测试
+    basicInforXnxq: '学年学期',
+    basicInforXnxqIndex: '学年学期列表',
+    yfBj: '班级',
+    yfBjIndex: '班级列表',
+
     // 四级
     // 配置
     configVocabularyTag: 'tag词',

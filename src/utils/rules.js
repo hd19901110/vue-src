@@ -510,5 +510,21 @@ export default {
       validator: va,
       trigger: trigger
     }
+  },
+  // 年度固定格式
+  numhnum: (message = '请输入正确格式2020-2021', trigger = ['blur', 'change']) => {
+    // eslint-disable-next-line no-useless-escape
+    const reg = /^[0-9]{4}[-]{1}[0-9]{4}$/
+    const validator = (rule, value, callback) => {
+      if (value === '' || reg.test(value)) {
+        callback()
+      } else {
+        callback(new Error(message))
+      }
+    }
+    return {
+      validator,
+      trigger
+    }
   }
 }

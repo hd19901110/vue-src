@@ -16,7 +16,8 @@ import './assets/theme/index.scss'
 import './assets/css/index.scss'
 import './assets/icon'
 import Viser from 'viser-vue'
-
+// 添加
+// import '@/utils/global'
 Vue.use(Viser)
 Vue.config.productionTip = false
 Vue.use(ElementUI, {

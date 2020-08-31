@@ -242,5 +242,9 @@ export default {
   // 字典类型
   dictTypesIndex: 'views/System/Dict/Types/Index',
   // 字典数据
-  dictDatasIndex: 'views/System/Dict/Datas/Index'
+  dictDatasIndex: 'views/System/Dict/Datas/Index',
+  // 学年学期列表
+  basicInforXnxqIndex: 'views/yftest/jbxx/xnxq/Index',
+  // 班级列表
+  yfBjIndex: 'views/yftest/jbxx/bj/Index'
 }
